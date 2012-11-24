@@ -1,0 +1,60 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>HTML5 Speed Test</title>
+  <meta name="description" content="A pure HTML5 speed test that works on mobile browsers such as the iPad, iPhone and Android.">
+  <meta name="viewport" content="width=device-width, initial-scale=.5, maximum-scale=1">
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <script type="text/javascript" src="javascripts/modernizr-2.5.3.min.js"></script>
+</head>
+<body onLoad="init()">
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+  <header>
+
+  </header>
+
+  <div role="main">
+   <div style="position:absolute; top:50%; width:100%; height:540px; margin-top:-300px;">
+    <div style="width:640px; margin:0px auto;">
+     <h1>HTML5 Speed Test</h1>
+     <p>Works on <b>iPhone / iPad / iPod / Android</b> and desktop browsers. No Flash, no Java!</p>
+     <canvas id="c" width="640" height="400" style="border: 1px solid black"></canvas><br />
+     <iframe id="d" src="d.html" style="display:none"></iframe>
+     <iframe id="u" src="u.html" style="display:none"></iframe>
+     <p>
+      This tests download, upload and bi-directional transfer speeds. Your browser likley 
+      isn't fast enough to accurately test speeds above 2 Mbps or so. Check out the 
+      <a href="/about">About</a> page for more information. If you have any 
+      comments, I'm <a href="http://twitter.com/satyaakam">@satyaakam</a> on twitter.
+     </p>
+    </div>
+   </div>
+  </div>
+
+  <footer>
+
+  </footer>
+
+  <script type="text/javascript" src="javascripts/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="javascripts/plugins.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-7511316-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

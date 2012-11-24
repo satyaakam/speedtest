@@ -1,0 +1,86 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>About HTML5 Speed Test</title>
+  <meta name="description" content="The thinking behind this HTML5 Speed Test.">
+  <meta name="viewport" content="width=device-width, initial-scale=.5, maximum-scale=1">
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <script type="text/javascript" src="/javascripts/modernizr-2.5.3.min.js"></script>
+</head>
+<body onLoad="init()">
+  <!--[if lt IE 7]><p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+  <header>
+
+  </header>
+
+  <div role="main" style="margin:30px">
+   <h1>About HTML5 Speed Test</h1>
+   <h3>Background</h3>
+   <p>
+    This HTML5 Speed Test was written for <a href="http://bandwidth.com/">Bandwidth.com</a> by Anders Brownworth. 
+    (<a href="http://twitter.com/anders94">@Anders94</a>) Traditionally, browser-based speed tests tended to be
+    Java applet, Flash or JavaScript/HTML driven. This speed test is of the JavaScript variant but adds to it some 
+    niceties from the HTML5 chest of goodies. Flash and Java applet based speed tests require external plugins to
+    operate which are notably absent from most mobile operating systems like iOS and Android.
+   </p>
+   <h3>Technology</h3>
+   <p>
+    As its name implies, this HTML5 speed test does not rely on Flash or Java applet components. Unlike the previous 
+    generation of HTML speed tests, this HTML5 speed test checks both upload and download capacity. It does this by
+    spawning two iframes and downloading data through one and uploading it through the other. This has the convenient 
+    side effect of being able to test upload and download capacity at the same time. Some internet connections, notably 
+    asynchronous DSL, degrade when you do that.
+   </p>
+   <p>
+    On the plus side, this HTML5 speed test works on iPhones, iPods, iPads and Android devices. It should work with 
+    just about every HTML5 browser out there which has become a significant number. If you run into a browser that
+    doesn't seem to work, drop a note to <a href="http://twitter.com/anders94">@Anders94</a> and let me know.
+   </p>
+   <h3>Drawbacks</h3>
+   <p>
+    HTML5 is young. Some browsers don't yet support it and those that do don't always work as quickly as you would 
+    like. A proper speed test would use UDP but unfortunately HTML5 doesn't yet directly support it. We are working 
+    with the &lt;video&gt; tag to do a UDP based test using RTSP but widespread support is still an issue. Over time
+    this test should get better.
+   </p>
+   <p>
+    This HTML5 speed test will tend to be conservative for two critical reasons. Browsers don't always work as fast 
+    as one might like, posing an upper limit on the speed test's capacity. Additionally, all data transfers are done 
+    via HTTP which runs over TCP. If packets get lost, TCP will retransmit the packets without notifying the speed 
+    test so speeds will trend lower than the actual rates. In time as we work to make the test better, we hope to 
+    fix these bottlenecks by limiting the browser's workload and using UDP. These are the early days - hang with us!
+   </p>
+   <p>
+   </p>
+   <h3>Interested?</h3>
+   <p>
+    Sign up for updates about HTML5 Speed Test here:
+    <form style="border:1px solid #ccc;padding:3px;text-align:center;" action="https://tinyletter.com/anders94" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/anders94', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"><p><label for="tlemail">Enter your email address</label></p><p><input type="text" style="width:140px" name="email" id="tlemail" /></p><input type="hidden" value="1" name="embed"/><input type="submit" value="Subscribe" /></form>
+   </p>
+   <p>
+    I'm working on a way to make this speed test embedable on external websites but am a ways away from this actually
+    working. Let me know if you are interested in this and I'll try to get a move on.
+   </p>
+  </div>
+
+  <footer>
+
+  </footer>
+
+  <script type="text/javascript">
+   var _gaq = _gaq || [];
+   _gaq.push(['_setAccount', 'UA-74866-12']);
+   _gaq.push(['_trackPageview']);
+   (function() {
+     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+   })();
+  </script>
+</body>
+</html>

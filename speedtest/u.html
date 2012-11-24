@@ -1,0 +1,77 @@
+<html>
+ <head>
+  <script language="javascript">
+   <!--
+
+   var xmlhttp = new XMLHttpRequest( );
+   var progress = 0;
+   var speed = 0;
+   var blob;
+   var log;
+   var running = false;
+
+   function a( ) {
+     log = document.getElementById( "log" );
+     log.textContent += "uploader initialized\n";
+     parent.onMessage( "UI " + new Date( ).getTime( ) );
+
+   }
+
+   function b( b ) {
+     blob = b;
+     log.textContent += "got " + blob.length + "\n";
+
+   }
+
+   function c( e ) { // similar to the way WebWorkers functions but usually e is an object. (e.data) We'll just work with e as a string.
+     var start = new Date( ).getTime( );
+     var stop = start;
+
+     if ( e.substr( 0, 1 ) == "R" ) { // Run the test
+       running = true;
+       xmlhttp.onreadystatechange = function( ) {
+         if ( xmlhttp.readyState == 3 ) {
+           progress = blob.length / xmlhttp.getResponseHeader( "Content-Length" );
+           speed = progress / ( new Date( ).getTime( ) - start );
+
+         }
+         else if ( xmlhttp.readyState == 4 && xmlhttp.status == 200 ) {
+           stop = new Date( ).getTime( );
+           running = false;
+           progress = 1;
+           speed = 0;
+           parent.onMessage( "UF " + blob.length + " " + ( stop - start ) );
+
+         }
+
+       }
+
+       xmlhttp.open( "POST", "blank.dat?" + new Date( ).getTime( ), true );
+       start = new Date( );
+       parent.onMessage( "UR" );
+       xmlhttp.send( blob );
+
+     }
+     else if ( e.substr( 0, 1 ) == "P" ) { // Progress
+       parent.onMessage( "UP " + progress + " " + speed );
+
+     }
+     else {
+       parent.onMessage( "ERROR" );
+
+     }
+
+   }
+
+   function r( ) {
+     return( running );
+
+   }
+
+   // -->
+  </script>
+ </head>
+ <body>
+  <pre id="log"></pre>
+ </body>
+</html>

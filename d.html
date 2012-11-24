@@ -1,0 +1,85 @@
+<html>
+ <head>
+  <script language="javascript">
+   <!--
+
+   var xmlhttp = new XMLHttpRequest( );
+   var progress = 0;
+   var bytesDownloaded = 0;
+   var timeSpent = 0;
+   var blob = "";
+   var file = "";
+   var log;
+   var running = false;
+
+   function a( f ) {
+     log = document.getElementById( "log" );
+     log.textContent += "downloader initialized with " + f + "\n";
+     file = f;
+     parent.onMessage( "DI " + file + " " + new Date( ).getTime( ) );
+
+   }
+
+   function b( ) {
+     log.textContent += "sent " + blob.length + "\n";
+     return( blob );
+
+   }
+
+   function c( e ) { // similar to the way WebWorkers functions but usually e is an object. (e.data) We'll just work with e as a string.
+     var start = new Date( ).getTime( );
+     var stop = start;
+
+     if ( e.substr( 0, 1 ) == "R" ) { // Run the test
+       running = true;
+       xmlhttp.onreadystatechange = function( ) {
+         if ( xmlhttp.readyState == 3 ) {
+           progress = xmlhttp.responseText.length / xmlhttp.getResponseHeader( "Content-Length" );
+           bytesDownloaded = xmlhttp.responseText.length;
+           timeSpent = new Date( ).getTime( ) - start;
+
+         }
+         else if ( xmlhttp.readyState == 4 && xmlhttp.status == 200 ) {
+           stop = new Date( ).getTime( );
+           running = false;
+           progress = 1;
+           blob = xmlhttp.responseText;
+           parent.onMessage( "DF " + xmlhttp.responseText.length + " " + ( stop - start ) );
+
+         }
+
+       }
+
+       xmlhttp.open( "GET", file + "?" + new Date( ).getTime( ), true );
+       start = new Date( ).getTime( );
+       xmlhttp.send( );
+       parent.onMessage( "DR" );
+
+     }
+     else if ( e.substr( 0, 1 ) == "P" ) { // Progress
+       parent.onMessage( "DP " + progress + " " + bytesDownloaded + " " + timeSpent );
+
+     }
+     else if ( e.substr( 0, 1 ) == "G" ) { // Get blob (to be used by upload worker)
+       parent.onMessage( "G" + xmlhttp.responseText );
+
+     }
+     else {
+       parent.onMessage( "ERROR" );
+
+     }
+
+   }
+
+   function r( ) {
+     return( running );
+
+   }
+
+   // -->
+  </script>
+ </head>
+ <body>
+  <pre id="log"></pre>
+ </body>
+</html>
