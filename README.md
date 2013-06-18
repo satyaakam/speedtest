@@ -1,6 +1,6 @@
 speedtest
 =========
-This Work is based on the code from Anders Brownworth of http://html5speedtest.com/ .
+This Work is based on the code from Anders Brownworth of http://html5speedtest.com/ . He can be reached via @anders94 on twitter
 
 
 HTML5 based speed test program, ultimately i want to add the following features
