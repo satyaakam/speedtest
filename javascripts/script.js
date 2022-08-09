@@ -76,13 +76,13 @@ function report(a) {
     var b = new XMLHttpRequest;
     b.onreadystatechange = function () {
         b.readyState != 4 || b.status != 200
-    }, b.open("GET", "/results?o=" + BrowserDetect.OS + "&b=" + BrowserDetect.browser + "&v=" + BrowserDetect.version + "&" + a, !0), b.send()
+    }, b.open("GET", "results?o=" + BrowserDetect.OS + "&b=" + BrowserDetect.browser + "&v=" + BrowserDetect.version + "&" + a, !0), b.send()
 }
 var c, c2d, page = 0,
     step = 1,
     frame = 0,
     renderSpeed = 500,
-    interval, fileArray = new Array("/512k.txt", "/1M.txt", "/2M.txt", "/5M.txt", "/10M.txt", "/25M.txt"),
+    interval, fileArray = new Array("512k.txt", "1M.txt", "2M.txt", "5M.txt", "10M.txt", "25M.txt"),
     fileId = 3,
     uploadResult = 0,
     downloadResult = 0,
